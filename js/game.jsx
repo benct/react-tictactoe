@@ -27,6 +27,9 @@ class Game extends React.Component {
                 return squares[a];
             }
         }
+        if (squares.every((square) => square)) {
+            return 'Draw!';
+        }
         return null;
     }
 
@@ -68,7 +71,8 @@ class Game extends React.Component {
     render() {
         const current = this.state.history[this.state.stepNumber];
         const winner = this.calculateWinner(current.squares);
-        const status = winner ? 'Winner: ' + winner : 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+        const prefix = winner ? 'Game over! Winner:' : 'Next player:';
+        const status = winner ? winner : (this.state.xIsNext ? 'X' : 'O');
 
         return (
             <div className="game">
@@ -76,7 +80,7 @@ class Game extends React.Component {
                     <Board squares={current.squares} onClick={(i) => this.handleClick(i)} />
                 </div>
                 <div className="game-info">
-                    <div>{status}</div>
+                    <div>{prefix} <span className="status">{status}</span></div>
                     <ol>{this.renderMoves()}</ol>
                 </div>
             </div>
