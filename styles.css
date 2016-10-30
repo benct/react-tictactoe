@@ -36,10 +36,6 @@ ol, ul {
     outline: none;
 }
 
-.kbd-navigation .square:focus {
-    background: #ddd;
-}
-
 .game {
     display: flex;
     flex-direction: row;
@@ -47,13 +43,4 @@ ol, ul {
 
 .game-info {
     margin-left: 20px;
-}
-
-#errors {
-    background: #c00;
-    color: #fff;
-    display: none;
-    margin: -20px -20px 20px;
-    padding: 20px;
-    white-space: pre-wrap;
 }

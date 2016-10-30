@@ -1,52 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="robots" content="noindex">
-    <title>Tic Tac Toe - React</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="robots" content="noindex">
+        <title>Tic Tac Toe - React</title>
 
-    <link rel="stylesheet prefetch" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-    <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet prefetch" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+        <link rel="stylesheet" href="styles.css">
 
-    <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
-    <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
-    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
-    <script type="text/babel" src="js/square.jsx"></script>
-    <script type="text/babel" src="js/board.jsx"></script>
-    <script type="text/babel" src="js/game.jsx"></script>
-    <script type="text/babel" src="js/setup.js"></script>
-    <script>
-        window.addEventListener('mousedown', function(e) {
-            document.body.classList.add('mouse-navigation');
-            document.body.classList.remove('kbd-navigation');
-        });
-        window.addEventListener('keydown', function(e) {
-            if (e.keyCode === 9) {
-                document.body.classList.add('kbd-navigation');
-                document.body.classList.remove('mouse-navigation');
-            }
-        });
-        window.addEventListener('click', function(e) {
-            if (e.target.tagName === 'A' && e.target.getAttribute('href') === '#') {
-                e.preventDefault();
-            }
-        });
-        window.onerror = function(message, source, line, col, error) {
-            var text = error ? error.stack || error : message + ' (at ' + source + ':' + line + ':' + col + ')';
-            errors.textContent += text + '\n';
-            errors.style.display = '';
-        };
-        console.error = (function(old) {
-            return function error() {
-                errors.textContent += Array.prototype.slice.call(arguments).join(' ') + '\n';
-                errors.style.display = '';
-                old.apply(this, arguments);
-            }
-        })(console.error);
-    </script>
-</head>
-<body class="mouse-navigation">
-    <div id="errors"></div>
-    <div id="container"></div>
-</body>
+        <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
+        <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+        <script type="text/babel" src="js/square.jsx"></script>
+        <script type="text/babel" src="js/board.jsx"></script>
+        <script type="text/babel" src="js/game.jsx"></script>
+        <script type="text/babel" src="js/setup.js"></script>
+    </head>
+    <body class="mouse-navigation">
+        <div id="container"></div>
+    </body>
 </html>
