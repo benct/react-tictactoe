@@ -66,7 +66,7 @@ class Game extends React.Component {
         return this.state.history.map((state, move) => {
             const desc = move ? state.lastMove : 'Game start';
             return (
-                <li key={move} style={{fontWeight: this.state.stepNumber == move ? 'bold' : 'normal'}}>
+                <li key={move} className={this.state.stepNumber == move ? 'strong' : ''}>
                     <a href="#" onClick={() => this.jumpTo(move)}>{desc}</a>
                 </li>
             );
@@ -86,7 +86,7 @@ class Game extends React.Component {
                     <Board squares={current.squares} winner={winner} onClick={(i) => this.handleClick(i)} />
                 </div>
                 <div className="game-info">
-                    <div>{prefix} <span className="status">{status}</span></div>
+                    <div>{prefix} <span className="strong">{status}</span></div>
                     <ol>{this.renderMoves()}</ol>
                 </div>
             </div>

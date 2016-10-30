@@ -1,5 +1,5 @@
 body {
-    font: 14px "Century Gothic", Futura, sans-serif;
+    font: 16px "Century Gothic", Futura, sans-serif;
     margin: 20px;
 }
 
@@ -18,23 +18,24 @@ li a {
     display: table;
 }
 
-.status {
+.strong {
     font-weight: bold;
 }
 
 .square {
+    cursor: pointer;
     background: #fff;
     border: 1px solid #999;
     float: left;
-    font-size: 24px;
+    font-size: 64px;
     font-weight: bold;
-    line-height: 34px;
-    height: 34px;
+    line-height: 100px;
+    height: 100px;
     margin-right: -1px;
     margin-top: -1px;
     padding: 0;
     text-align: center;
-    width: 34px;
+    width: 100px;
 }
 
 .square.win {
@@ -48,8 +49,12 @@ li a {
 .game {
     display: flex;
     flex-direction: row;
+    width: 550px;
+    margin: 50px auto;
 }
 
 .game-info {
+    width: 220px;
     margin-left: 20px;
+    margin-top: 10px;
 }
