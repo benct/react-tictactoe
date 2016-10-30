@@ -3,7 +3,8 @@ class Game extends React.Component {
         super();
         this.state = {
             history: [{
-                squares: new Array(9).fill(null)
+                squares: new Array(9).fill(null),
+                lastMove: null
             }],
             stepNumber: 0,
             xIsNext: true
@@ -33,17 +34,25 @@ class Game extends React.Component {
         return null;
     }
 
+    getMoveLocation(i) {
+        const row = i < 3 ? 1 : i < 6 ? 2 : 3;
+        const col = i == 0 || i == 3 || i == 6 ? 1 : i == 1 || i == 4 || i == 7 ? 2 : 3;
+        return [row, col];
+    }
+
     handleClick(i) {
         const history = this.state.history.slice(0, this.state.stepNumber + 1);
         const current = history[history.length - 1];
         const squares = current.squares.slice();
+        const [row, col] = this.getMoveLocation(i);
         if (this.calculateWinner(squares) || squares[i]) {
             return;
         }
         squares[i] = this.state.xIsNext ? 'X' : 'O';
         this.setState({
             history: history.concat([{
-                squares: squares
+                squares: squares,
+                lastMove: squares[i] + ' (' + row + ', ' + col + ')'
             }]),
             stepNumber: history.length,
             xIsNext: !this.state.xIsNext
@@ -58,8 +67,8 @@ class Game extends React.Component {
     }
 
     renderMoves() {
-        return this.state.history.map((step, move) => {
-            const desc = move ? 'Move #' + move : 'Game start';
+        return this.state.history.map((state, move) => {
+            const desc = move ? 'Move #' + move + ' - ' + state.lastMove : 'Game start';
             return (
                 <li key={move} style={{fontWeight: this.state.stepNumber == move ? 'bold' : 'normal'}}>
                     <a href="#" onClick={() => this.jumpTo(move)}>{desc}</a>
