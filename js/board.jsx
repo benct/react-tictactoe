@@ -1,6 +1,7 @@
 class Board extends React.Component {
     renderSquare(i) {
-        return <Square key={i} value={this.props.squares[i]} onClick={() => this.props.onClick(i)} />;
+        const mark = this.props.winner && this.props.winner.indexOf(i) > -1;
+        return <Square key={i} value={this.props.squares[i]} onClick={() => this.props.onClick(i)} mark={mark} />;
     }
 
     render() {

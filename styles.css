@@ -37,6 +37,10 @@ li a {
     width: 34px;
 }
 
+.square.win {
+    background-color: limegreen;
+}
+
 .square:focus {
     outline: none;
 }
