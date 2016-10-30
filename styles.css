@@ -7,6 +7,11 @@ ol, ul {
     padding-left: 30px;
 }
 
+li a {
+    color: midnightblue;
+    text-decoration: none;
+}
+
 .board-row:after {
     clear: both;
     content: "";

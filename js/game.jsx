@@ -58,7 +58,7 @@ class Game extends React.Component {
         return this.state.history.map((step, move) => {
             const desc = move ? 'Move #' + move : 'Game start';
             return (
-                <li key={move}>
+                <li key={move} style={{fontWeight: this.state.stepNumber == move ? 'bold' : 'normal'}}>
                     <a href="#" onClick={() => this.jumpTo(move)}>{desc}</a>
                 </li>
             );
@@ -73,7 +73,7 @@ class Game extends React.Component {
         return (
             <div className="game">
                 <div className="game-board">
-                    <Board squares={current.squares} onClick={(i) => this.handleClick(i)}/>
+                    <Board squares={current.squares} onClick={(i) => this.handleClick(i)} />
                 </div>
                 <div className="game-info">
                     <div>{status}</div>
