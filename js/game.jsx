@@ -68,7 +68,7 @@ class Game extends React.Component {
 
     renderMoves() {
         return this.state.history.map((state, move) => {
-            const desc = move ? 'Move #' + move + ' - ' + state.lastMove : 'Game start';
+            const desc = move ? state.lastMove : 'Game start';
             return (
                 <li key={move} style={{fontWeight: this.state.stepNumber == move ? 'bold' : 'normal'}}>
                     <a href="#" onClick={() => this.jumpTo(move)}>{desc}</a>
